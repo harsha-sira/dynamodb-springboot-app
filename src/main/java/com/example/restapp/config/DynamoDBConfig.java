@@ -18,30 +18,16 @@ public class DynamoDBConfig {
 	@Value("${amazon.dynamodb.endpoint}")
 	private String dBEndpoint;
 
-	@Value("${amazon.aws.accesskey}")
-	private String accessKey;
-
-	@Value("${amazon.aws.secretkey}")
-	private String secretKey;
-
 	@Value("${amazon.dynamodb.region}")
     private String amazonDynamoDBRegion;
 
 	@Bean
     public AmazonDynamoDB amazonDynamoDB() {
         return AmazonDynamoDBClientBuilder.standard()
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+//                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
 				.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(dBEndpoint, amazonDynamoDBRegion))
                 .build();
     }
 
-	@Bean
-	public AWSCredentials amazonAWSCredentials() {
-		return new BasicAWSCredentials(accessKey, secretKey);
-	}
 
-	/*
-	 swagger
-	 unit tests
-	 */
 }
