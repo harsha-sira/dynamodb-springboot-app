@@ -15,10 +15,10 @@ import org.springframework.context.annotation.Configuration;
 @EnableDynamoDBRepositories(basePackages = "com.example.restapp.repo")
 public class DynamoDBConfig {
 
-	@Value("${amazon.dynamodb.endpoint}")
+	@Value("${amazon.dynamodb.endpoint:dynamodb.us-east-1.amazonaws.com}")
 	private String dBEndpoint;
 
-	@Value("${amazon.dynamodb.region}")
+	@Value("${amazon.dynamodb.region:us-east-1}")
     private String amazonDynamoDBRegion;
 
 	@Bean
