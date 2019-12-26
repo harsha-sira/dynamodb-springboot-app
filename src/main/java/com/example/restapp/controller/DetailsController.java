@@ -42,6 +42,7 @@ public class DetailsController {
     /*
     adding user details
      */
+    @CrossOrigin
     @PostMapping("/add")
     public ResponseWrapper<UserDetails> addBank(@RequestBody UserDetails userDetails)
     {

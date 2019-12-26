@@ -82,6 +82,7 @@ public class BankController {
     /*
     gets the bank counts;
      */
+    @CrossOrigin
     @RequestMapping("/count")
     public ResponseWrapper<String> getBankCount()
     {
@@ -92,6 +93,7 @@ public class BankController {
     /*
     gets the bank name list only
      */
+    @CrossOrigin
     @RequestMapping("/listBanks")
     public ResponseWrapper<List<String>> getAllBanksNamesOnly()
     {
